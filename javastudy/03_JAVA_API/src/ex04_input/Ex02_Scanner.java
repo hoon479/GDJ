@@ -19,6 +19,7 @@ public class Ex02_Scanner {
 		
 		  System.out.print("이름을 입력하세요 >>> " ); String name = sc.next();
 		  
+		  
 		  System.out.println("나이를 입력하세요 >>>"); int age = sc.nextInt();
 		  
 		  System.out.println(name); System.out.println(age);
