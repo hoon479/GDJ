@@ -16,7 +16,7 @@ public class Main {
 		System.out.println(user2);
 	
 		User user3 = User.builder()
-				
+				   
 				.userNo(1)
 				.id("admin")
 				.email("admin@naver.com")
