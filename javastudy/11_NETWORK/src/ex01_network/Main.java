@@ -5,9 +5,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 public class Main {
 
@@ -46,7 +50,7 @@ public class Main {
    public static void m2() {
       
       /*
-       * HttpURLConnection
+       * HttpURLConnection 클래스
        * 1. 웹 접속을 담당하는 클래스
        * 2. URL 객체와 함께 사용
        * 3. URLConnection 클래스의 자식 클래스
@@ -69,6 +73,7 @@ public class Main {
          System.out.println("정상:" + HttpURLConnection.HTTP_OK);
          System.out.println("NOT Found: " + HttpURLConnection.HTTP_NOT_FOUND);
          System.out.println("Internal Error : " + HttpURLConnection.HTTP_INTERNAL_ERROR);
+        
          System.out.println("컨텐트 타입 : " + con.getContentType());
          System.out.println("요청 방식 : " + con.getRequestMethod());
          
@@ -86,25 +91,26 @@ public class Main {
       //HttpURLConnection과 스트림
       
       try {
-         String apiURL = "https://www.naver.com";
-         URL url = new URL(apiURL);
+        
+    	  String apiURL = "https://www.naver.com";
+    	  URL url = new URL(apiURL);
+    	  HttpURLConnection con = (HttpURLConnection)url.openConnection();
          
-         HttpURLConnection con = (HttpURLConnection)url.openConnection();
+    	  //바이트 입력 스트림
+    	  InputStream in =  con.getInputStream(); 
+    	  
+    	  // 문자 입력 스트림으로 변환
+    	  InputStreamReader reader = new InputStreamReader(in);
+    	  
+    	  // 모두 읽어서 StringBuilder에 저장
+    	  StringBuilder sb = new StringBuilder();
+    	  char[] cbuf = new char[100]; //100글자 씩 처리
+    	  int readCnt = 0;
+    	  
+    	  while((readCnt = reader.read(cbuf)) !=  -1) {
+    		  sb.append(cbuf, 0 , readCnt);
+    	  }
          
-         //바이트 입력 스트림
-         InputStream in =  con.getInputStream(); 
-         
-         // 문자 입력 스트림으로 변환
-         InputStreamReader reader = new InputStreamReader(in);
-         
-         // 모두 읽어서 StringBuilder에 저장
-         StringBuilder sb = new StringBuilder();
-         char[] cbuf = new char[100]; //100글자 씩 처리
-         int readCnt = 0;
-         
-         while((readCnt = reader.read(cbuf)) !=  -1) {
-            sb.append(cbuf, 0 , readCnt);
-         }
          
          //StringBuilder의 모든 내용을 C:\\storage\\naver.html로 내보내기
       
@@ -124,9 +130,34 @@ public class Main {
       }
       
    }
+
+   public static void m4() {
+	   
+	   // 인코딩 : UTF-8 방식으로 암호화
+	   // 디코딩 : UTF-8 방식으로 복호화
+	   // 원본데이터 -> 인코딩 -> 전송 -> 디코딩 -> 원본데이터
+	   
+	   try {
+		   
+		   // 원본데이터
+		   String str = "한글 english 12345 !@#$+";
+		   
+		   // 인코딩
+		   String encode = URLEncoder.encode(str, "UTF-8");
+		   System.out.println(encode);
+		   
+		   // 디코딩
+		   String decode = URLDecoder.decode(encode, StandardCharsets.UTF_8);
+		   System.out.println(decode);
+		   
+	   } catch(UnsupportedEncodingException e) {
+		   e.printStackTrace();
+	   } 
+	   
+   }
    
    public static void main(String[] args) {
-      m3();
+        m4();
 
    }
 
