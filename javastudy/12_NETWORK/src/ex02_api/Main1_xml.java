@@ -20,7 +20,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class Main {
+public class Main1_xml {
 
 	
 	// 요청
@@ -42,7 +42,7 @@ public class Main {
 		
 		// API 주소	(주소 + 요청 파라미터)
 		String apiURL = "http://api.data.go.kr/openapi/tn_pubr_public_weighted_envlp_api";
-		String serviceKey = "bEQBRPHjt0tZrc7EsL0T8usfsZ1+wT+5jqamBef/ErC/5ZO6N7nYdRmrwR91bh5d3I1AQeY5qdbJOF6Kv0U1CQ==";
+		String serviceKey = "BkCQazv1gJwLqA+jlsqdRpogyM0InfDsICHdfKYTGI06cB/0RGcz2l3kagWbKyXviKipbHFwvfPIQ5ARXIKuVA==";
 		
 		try {
 			
@@ -171,7 +171,7 @@ public class Main {
 		// 보건복지부_코로나 19 감염현황 조회 서비스
 		
 		// 인증키(Decoding)
-		String serviceKey = "bEQBRPHjt0tZrc7EsL0T8usfsZ1+wT+5jqamBef/ErC/5ZO6N7nYdRmrwR91bh5d3I1AQeY5qdbJOF6Kv0U1CQ==";
+		String serviceKey = "BkCQazv1gJwLqA+jlsqdRpogyM0InfDsICHdfKYTGI06cB/0RGcz2l3kagWbKyXviKipbHFwvfPIQ5ARXIKuVA==";
 
 		// API 주소	(주소 + 요청 파라미터)
 		StringBuilder urlBuilder = new StringBuilder();
@@ -293,7 +293,7 @@ public class Main {
 		// 기상청41_단기예보 조회서비스
 		
 		// 인증키(Decoding)
-		String serviceKey = "bEQBRPHjt0tZrc7EsL0T8usfsZ1+wT+5jqamBef/ErC/5ZO6N7nYdRmrwR91bh5d3I1AQeY5qdbJOF6Kv0U1CQ==";
+		String serviceKey = "BkCQazv1gJwLqA+jlsqdRpogyM0InfDsICHdfKYTGI06cB/0RGcz2l3kagWbKyXviKipbHFwvfPIQ5ARXIKuVA==";
 
 		// API 주소	(주소 + 요청 파라미터)
 		StringBuilder urlBuilder = new StringBuilder();
