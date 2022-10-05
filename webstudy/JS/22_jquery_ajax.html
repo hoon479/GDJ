@@ -276,12 +276,13 @@
 
     <form id="frm" action="https://search.naver.com/search.naver">
         <input type="text" name="query" id="query">
-        <input type="button" name="네이버검색" id="btn">
+        <sub type="button" name="네이버검색" id="btn">
     </form>
     <script>
         document.getElementById('btn').onclick = function(event) {
             alert('검색어는 ' + document.getElementById('query').value + '입니다.')
         }
+        // 시험문제 15점짜리
         // button타입이 <input type="button" name="네이버검색" id="btn">타입이 아니고 <sub type="button" name="네이버검색" id="btn">이여야한다 
     </script>
 
