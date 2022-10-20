@@ -55,8 +55,8 @@ public class BoardDao {
 	
 	// 3. 게시글 삽입
 	public int insertBoard(Board board) {
-		SqlSession ss = factory.openSession(false);   // INSERT(커밋이 필요한 경우)
-		int result = ss.insert("mybatis.mapper.board.insertBoard", board);	// board를 파라미터로 전달
+		SqlSession ss = factory.openSession(false);  // INSERT(커밋이 필요한 경우)
+		int result = ss.insert("mybatis.mapper.board.insertBoard", board);  // board를 파라미터로 전달
 		if(result > 0) {
 			ss.commit();
 		}
@@ -65,25 +65,25 @@ public class BoardDao {
 	}
 	
 	// 4. 게시글 삭제
-		public int deleteBoard(int boardNo) {
-			SqlSession ss = factory.openSession(false);
-			int result = ss.delete("mybatis.mapper.board.deleteBoard", boardNo);
-			if(result > 0) {
-				ss.commit();
-			}
-			ss.close();
-			return result;
+	public int deleteBoard(int boardNo) {
+		SqlSession ss = factory.openSession(false);  // DELETE(커밋이 필요한 경우)
+		int result = ss.delete("mybatis.mapper.board.deleteBoard", boardNo);
+		if(result > 0) {
+			ss.commit();
 		}
-		
+		ss.close();
+		return result;
+	}
 	
+	// 5. 게시글 수정
+	public int updateBoard(Board board) {
+		SqlSession ss = factory.openSession(false);  // UPDATE(커밋이 필요한 경우)
+		int result = ss.update("mybatis.mapper.board.updateBoard", board);
+		if(result > 0) {
+			ss.commit();
+		}
+		ss.close();
+		return result;
+	}
 	
-    }	
-	
-
-	
-	
-	
-	
-	
-	
-	
+}
