@@ -9,7 +9,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	
+	<div>
+	<a href="${contextPath}/notice/list.no">공지사항</a>
+	</div>
+	
 	<c:if test="${login == null}">
 	<div>
 		<form method="post" action="${contextPath}/member/login.me">
